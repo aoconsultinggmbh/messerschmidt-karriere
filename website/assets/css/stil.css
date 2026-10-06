@@ -19,7 +19,7 @@
 :root{
   --dunkel:#27363f; --hell:#eff1f3; --fuss:#dce1e4; --grau:#636363; --grau-hell:#a7b0b6;
   --linie:rgba(39,54,63,.14); --hellblau-menue:#83d0f0;
-  --gruen:#3f8f5b; --orange:#c98a2b; --whatsapp:#25d366;
+  --gruen:#2e8b47; --orange:#d4a72c; --whatsapp:#25d366;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -87,17 +87,16 @@ section.wrap,.abschnitt>.wrap{padding-top:clamp(3.5rem,8vw,6.5rem);padding-botto
   .hauptnavi.offen{display:flex}
 }
 
-/* Hero: großes Teamfoto über die ganze Breite, Text darunter */
-.hero{background:#fff}
-.hero-bild-rahmen{margin:0;width:100%}
-.hero-bild-rahmen img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 32%;max-height:78vh}
-@media (max-width:760px){.hero-bild-rahmen img{aspect-ratio:4/3;max-height:none}}
-.hero .wrap{padding-top:clamp(2rem,5vw,3.5rem);padding-bottom:clamp(1rem,3vw,2rem)}
-.hero-text{max-width:860px}
+/* Hero: Text links, Teamfoto rechts – Bild in voller Größe (3:2), nichts abgeschnitten */
+.hero{background:var(--hell)}
+.hero-raster{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(2rem,4vw,4rem);align-items:center;padding-top:clamp(2rem,4vw,3.5rem);padding-bottom:clamp(2rem,4vw,3.5rem)}
+.hero-bild-rahmen{margin:0}
+.hero-bild-rahmen img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.hero-text{max-width:640px}
 .hero .gross{display:block;font-family:var(--schrift-ueberschrift);font-size:16px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--primaer);margin:0 0 1rem}
 .hero h1{margin-bottom:.8rem}
-.hero p{max-width:680px}
 .hero-knoepfe{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}
+@media (max-width:900px){.hero-raster{grid-template-columns:1fr}.hero-bild-rahmen{order:-1;margin:0 -16px}}
 
 /* Zweispalter */
 .zwei{display:grid;gap:clamp(2rem,5vw,5rem);grid-template-columns:1fr 1fr;align-items:center}
@@ -137,8 +136,8 @@ section.wrap,.abschnitt>.wrap{padding-top:clamp(3.5rem,8vw,6.5rem);padding-botto
 .stelle-zeile .pfeil{font-size:1.8rem;color:var(--primaer);font-weight:300}
 .marken{display:flex;flex-direction:column;gap:.35rem}
 .marke{display:inline-block;font-family:var(--schrift-ueberschrift);font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.2rem .6rem;color:#fff;text-align:center;border-radius:2px}
-.marke-gruen{background:var(--primaer)}
-.marke-orange{background:var(--orange)}
+.marke-gruen{background:var(--gruen)}
+.marke-orange{background:var(--orange);color:var(--dunkel)}
 @media (max-width:640px){.stelle-zeile{grid-template-columns:1fr;gap:.6rem}.marken{flex-direction:row;flex-wrap:wrap}.stelle-zeile .pfeil{display:none}}
 
 /* Fotokarten (Drei Gründe, Prozess) */

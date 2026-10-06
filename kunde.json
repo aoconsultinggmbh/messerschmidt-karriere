@@ -32,9 +32,9 @@
     "foto": "assets/img/ansprechpartner.jpg"
   },
   "bewerbungen": {
-    "_hinweis": "TESTPHASE: Bewerbungen gehen an tofik@ao-consult.de (Vorgabe Awan). Vor dem Livegang auf die Adresse der Praxis umstellen (Vorschlag: karriere@zahnzentrum-messerschmidt.de – Kundin fragen).",
+    "_hinweis": "Bewerbungen gehen an die Praxis (Vorgabe Awan 06.10.2026: überall Kundenmail). Wenn die Kundin eine eigene Adresse wie karriere@zahnzentrum-messerschmidt.de anlegt, hier tauschen.",
     "standard_empfaenger": [
-      "tofik@ao-consult.de"
+      "info@zahnzentrum-messerschmidt.de"
     ],
     "absender": "jobs@zahnzentrum-messerschmidt-karriere.de",
     "absender_name": "Zahnzentrum Messerschmidt Karriere",

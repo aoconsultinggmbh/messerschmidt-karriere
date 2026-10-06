@@ -6,7 +6,7 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 
 - Aufbau nach dem Standard der Karriereseiten (ao-karriere, whiteblick-karriere), CI der Hauptseite zahnzentrum-messerschmidt.de.
 - Logo und CI von der Hauptseite nehmen (SVG kommt laut Onboarding später von der Kundin).
-- Testbewerbungen an **tofik@ao-consult.de**. Absender: **jobs@zahnzentrum-messerschmidt-karriere.de**.
+- Bewerbungen und alle sichtbaren Adressen: **info@zahnzentrum-messerschmidt.de** (Kundenmail, Korrektur Awan 06.10.2026 – AO bekommt nur den ersten Formulartest). Absender: **jobs@zahnzentrum-messerschmidt-karriere.de**.
 - WhatsApp-Knopf **und** normale Telefonnummer. Upload-Feld trotzdem anbieten (Erstkontakt ohne Unterlagen möglich).
 - ZFA: Voll- und Teilzeit, ab sofort. ZMP/ZMF: eine Stelle. Ausbildung: September 2027, Anzahl der Plätze NICHT nennen.
 - Standardtexte für die Stellen. Arbeitszeiten (Sprechzeiten) dürfen auf die Seite. Noch keine Teamstimmen → Abschnitt weggelassen.
@@ -17,7 +17,8 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 - Foto Nr. 62 ist Dr. Sabine Messerschmidt.
 - WhatsApp-Nummer +49 1515 4321140 darf auf die Seite.
 - ZMP/ZMF: ab sofort.
-- Sichtbare E-Mail info@zahnzentrum-messerschmidt.de passt.
+- Sichtbare E-Mail und Empfänger: info@zahnzentrum-messerschmidt.de.
+- Keine Hochkantbilder, kein Motiv doppelt; Ampel: Offen grün, Initiativ senfgelb; keine Datumszeile auf den Stellenseiten.
 - Fotos: Iwan Artemjew, Fotograf der AO Consulting GmbH.
 
 ## Weitere Annahmen
@@ -27,7 +28,7 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 
 ## Offen vor dem Livegang
 
-- [ ] Empfängeradresse Bewerbungen (Vorschlag karriere@zahnzentrum-messerschmidt.de) – in kunde.json `bewerbungen.standard_empfaenger` tauschen.
+- [ ] Falls die Kundin eine eigene Bewerbungsadresse anlegt (z. B. karriere@zahnzentrum-messerschmidt.de): in kunde.json `bewerbungen.standard_empfaenger` tauschen.
 - [ ] Domain zahnzentrum-messerschmidt-karriere.de registrieren; Postfach jobs@ auf dieser Domain anlegen (Absender).
 - [ ] Impressum: „Umsatzsteueridentifikationsnummer 28/114/5003/0“ ist das Format einer Steuernummer – mit Kundin klären.
 - [ ] Datenschutz von der Kundin freigeben lassen (Hauptseite war Stand 2018 mit Google Analytics/Privacy Shield – nicht übernommen).
@@ -36,19 +37,20 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 - [ ] Matomo-Eintrag anlegen, `matomo_id` in kunde.json eintragen.
 - [ ] Instagram-Passwort stand im Onboarding-PDF im Klartext → in den Passwort-Manager, Kundin sollte es ändern.
 
-## Bilder (Shooting, Nummer = Dateiname ZahnzentrumMesserschmidt_<Nr>.jpg)
+## Bilder (Shooting Iwan Artemjew, Nummer = Dateiname ZahnzentrumMesserschmidt_<Nr>.jpg)
+
+Regel: nur Querformat-Originale, jedes Motiv (Serie) nur einmal auf der Startseite.
 
 | Datei | Nr. | Verwendung |
 |---|---|---|
-| hero-team(-mobil), og-bild | 29 | Titelbild, Vorschaubild für WhatsApp/Social |
-| haus | 14 | Über uns (Haus von oben mit Solaranlage) |
+| hero-team(-mobil), og-bild | 29 | Titelbild (3:2, ungeschnitten), Vorschaubild |
+| haus | 14 | Über uns |
 | job-familie | 24 | Team-Abschnitt |
-| gruende-kollegen / -modern / -hell | 17 / 4 / 21 | Drei Gründe |
-| prozess-unterlagen / -telefonat / -gespraech / -schnuppertag | 39 / 35 / 44 / 54 | Bewerbungsprozess |
-| ansprechpartner(-quer) | 62 | Dr. Sabine Messerschmidt (bestätigen!) |
+| gruende-kollegen / -modern / -hell | 17 / 4 / 112 | Drei Gründe |
+| prozess-unterlagen / -telefonat / -gespraech / -schnuppertag | 39 / 36 / 44 / 19 | Bewerbungsprozess |
+| ansprechpartner(-quer) | 62 | Dr. Sabine Messerschmidt (bestätigt) |
 | faq-empfang | 33 | FAQ |
-| stelle-zfa / -zmp-zmf / -ausbildung | 23 / 47 / 113 | Stellenseiten |
-| praxis-<Nr> | 29, 23, 14, 33, 16, 53, 43, 2, 112, 36, 19, 47, 105, 28 | Fotoband |
+| praxis-<Nr> | 68, 12, 89, 1, 98 | Fotoband |
+| stelle-zfa / -zmp-zmf / -ausbildung | 21 / 80 / 102 | Stellenseiten |
 
-Zuschnitt: Skript `bilder.py` (Mac-Arbeitsordner), jpg + webp. Die Einzelportraits (Nr. 56–104) sind noch ungenutzt – ohne Namen
-nicht verwendbar; ideal für einen späteren Team-Abschnitt, wenn Namen und Rollen da sind.
+Nicht verwendet: Hochkant (3, 5, 7, 15, 27, 49–55) und Wiederholungen derselben Serie. Zuschnitt: `bilder.py` (Mac-Arbeitsordner), jpg + webp.
