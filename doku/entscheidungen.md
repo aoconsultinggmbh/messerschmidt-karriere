@@ -12,12 +12,17 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 - Standardtexte für die Stellen. Arbeitszeiten (Sprechzeiten) dürfen auf die Seite. Noch keine Teamstimmen → Abschnitt weggelassen.
 - Impressum und Datenschutz erstmal von der Hauptseite. Matomo unter statistik.ao-consult.de wie üblich.
 
-## Annahmen (bitte bestätigen lassen)
+## Von Awan bestätigt (06.10.2026)
 
-- **Ansprechpartnerin-Foto:** Bild Nr. 62 aus dem Shooting ist als Dr. Sabine Messerschmidt eingesetzt (Vergleich mit dem Foto „Sabine1“ auf der Hauptseite). **Zuordnung von Awan/Kundin bestätigen.**
-- **WhatsApp-Nummer** +49 1515 4321140 aus dem Onboarding („WhatsApp Nr. 1“) – darf diese Nummer öffentlich auf die Seite?
-- **Sichtbare E-Mail** auf der Seite: info@zahnzentrum-messerschmidt.de (öffentlich auf der Hauptseite). Das Formular schickt in der Testphase an tofik@ao-consult.de.
-- **ZMP/ZMF:** Voll-/Teilzeit und „ab sofort“ angenommen – nicht vom Kunden genannt.
+- Foto Nr. 62 ist Dr. Sabine Messerschmidt.
+- WhatsApp-Nummer +49 1515 4321140 darf auf die Seite.
+- ZMP/ZMF: ab sofort.
+- Sichtbare E-Mail info@zahnzentrum-messerschmidt.de passt.
+- Fotos: Iwan Artemjew, Fotograf der AO Consulting GmbH.
+
+## Weitere Annahmen
+
+- **ZMP/ZMF:** Voll-/Teilzeit angenommen („ab sofort“ bestätigt).
 - **Telefon** auf der Seite: Praxisnummer 06131 86926. Die Nummer 06249 905437 aus dem Onboarding ist nicht auf der Seite.
 
 ## Offen vor dem Livegang
@@ -25,7 +30,6 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 - [ ] Empfängeradresse Bewerbungen (Vorschlag karriere@zahnzentrum-messerschmidt.de) – in kunde.json `bewerbungen.standard_empfaenger` tauschen.
 - [ ] Domain zahnzentrum-messerschmidt-karriere.de registrieren; Postfach jobs@ auf dieser Domain anlegen (Absender).
 - [ ] Impressum: „Umsatzsteueridentifikationsnummer 28/114/5003/0“ ist das Format einer Steuernummer – mit Kundin klären.
-- [ ] Impressum: Bildnachweis Fotograf (Name/Schreibweise „Iwan Artemjew“) bestätigen.
 - [ ] Datenschutz von der Kundin freigeben lassen (Hauptseite war Stand 2018 mit Google Analytics/Privacy Shield – nicht übernommen).
 - [ ] Logo als SVG von der Kundin einsetzen (jetzt PNG 246×135 von der Hauptseite).
 - [ ] Stellentexte und Benefits von der Kundin freigeben lassen; Gehalt nur mit Freigabe.
