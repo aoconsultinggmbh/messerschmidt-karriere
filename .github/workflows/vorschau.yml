@@ -40,7 +40,7 @@ jobs:
           while IFS= read -r f; do
             sed -i 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' "$f"
             sed -i "s#https://$DOMAIN#https://$VORSCHAU#g" "$f"
-            sed -i 's#<body\([^>]*\)>#<body\1>\n<div class="vorschau-hinweis">Vorschau – noch nicht veröffentlicht. Das Bewerbungsformular versendet erst nach dem Livegang.</div>#' "$f"
+            sed -i 's#<body\([^>]*\)>#<body\1>\n<div class="vorschau-hinweis">Vorschau, noch nicht veröffentlicht. Das Bewerbungsformular versendet erst nach dem Livegang.</div>#' "$f"
           done < <(find _vorschau -name "*.html")
           touch _vorschau/.nojekyll
 
