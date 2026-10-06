@@ -5,7 +5,7 @@ name: Vorschau
 on:
   push:
     branches: [main]
-    paths: ["website/**", "stellen/**", "kunde.json", "vorlagen/**", "scripts/**"]
+    paths: ["website/**", "stellen/**", "kunde.json", "vorlagen/**", "scripts/**", ".github/workflows/vorschau.yml"]
   workflow_dispatch:
 
 permissions:
