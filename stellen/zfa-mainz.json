@@ -1,0 +1,93 @@
+{
+  "status": "aktiv",
+  "standort": "mainz",
+  "befristung": null,
+  "gehalt": {
+    "_hinweis": "Nur nach Freigabe der Kundin eintragen.",
+    "min": null,
+    "max": null,
+    "waehrung": "EUR",
+    "einheit": "MONTH"
+  },
+  "erfahrung_monate": null,
+  "bewerbungen_an": [],
+  "ansprechpartner": null,
+  "alte_adresse": "",
+  "veroeffentlicht": "2026-10-06",
+  "gueltig_bis": "2026-11-20",
+  "_datum_hinweis": "veroeffentlicht und gueltig_bis setzt scripts/stellen-aktualisieren.py monatlich neu. Von Hand nur beim Anlegen eintragen.",
+  "arbeitszeit": null,
+  "wir_bieten": null,
+  "_hinweis": "Standardtext AO Consulting (Vorgabe Awan 06.10.2026: Standardtexte), Voll- und Teilzeit ab sofort laut Awan. Wichtigste Stelle laut Onboarding. Von der Kundin freigeben lassen.",
+  "kennung": "zfa-mainz",
+  "titel": "ZFA / Zahnmedizinische Fachangestellte (m/w/d) in Voll- oder Teilzeit",
+  "titel_kurz": "ZFA – Zahnmedizinische Fachangestellte",
+  "reihenfolge": 1,
+  "beschaeftigungsart": [
+    "VOLLZEIT",
+    "TEILZEIT"
+  ],
+  "beginn": "ab sofort",
+  "kurz": "Assistenz am Behandlungsstuhl, Hygiene und Aufbereitung, Patientenbetreuung und Organisation – in einem hellen, modernen Zahnzentrum mit netten Kollegen.",
+  "einleitung": "Unser Zahnzentrum in Mainz-Laubenheim liegt in einem eigens dafür gebauten Haus: hell, modern und nach ökologischen Gesichtspunkten geplant. Viel Licht, freundliche Farben und vier moderne Behandlungszimmer sorgen dafür, dass sich Patienten und Team bei uns wohlfühlen.\n\nBei uns steckt die Kompetenz im Detail – und dafür brauchen wir ein Team, das mit Sorgfalt und Herz bei der Sache ist. Nette Kolleginnen und Kollegen, ein strukturierter Einarbeitungsplan und echte Weiterbildungsmöglichkeiten warten auf Dich.",
+  "aufgaben": [
+    "Assistenz bei allen zahnärztlichen Behandlungen",
+    "Vor- und Nachbereitung der Behandlungszimmer",
+    "Hygiene sowie Aufbereitung von Instrumenten und Medizinprodukten",
+    "Freundliche Betreuung unserer Patienten – auch der kleinen und der ängstlichen",
+    "Anfertigen von Röntgenaufnahmen",
+    "Unterstützung bei Terminplanung, Empfang und Dokumentation"
+  ],
+  "profil": [
+    "Abgeschlossene Ausbildung als Zahnmedizinische Fachangestellte / ZFA / Zahnarzthelferin (m/w/d)",
+    "Röntgenschein von Vorteil, aber kein Muss",
+    "Freude am Umgang mit Menschen und ein freundliches Auftreten",
+    "Sorgfältige, zuverlässige Arbeitsweise und Teamgeist",
+    "Berufseinsteiger und Wiedereinsteiger sind herzlich willkommen"
+  ],
+  "qualifikation_erforderlich": "Abgeschlossene Ausbildung als Zahnmedizinische Fachangestellte / ZFA / Zahnarzthelferin (m/w/d)",
+  "formular_zusatzfragen": [
+    {
+      "name": "ausbildung_zfa",
+      "frage": "Hast Du eine abgeschlossene Ausbildung als ZFA?",
+      "typ": "janein",
+      "pflicht": false
+    },
+    {
+      "name": "erfahrung",
+      "frage": "Wie viele Jahre Berufserfahrung hast Du?",
+      "typ": "auswahl",
+      "optionen": [
+        "Keine Erfahrung",
+        "1-3 Jahre",
+        "3-5 Jahre",
+        "+5 Jahre"
+      ],
+      "pflicht": false
+    },
+    {
+      "name": "umfang",
+      "frage": "Vollzeit oder Teilzeit?",
+      "typ": "auswahl",
+      "optionen": [
+        "Vollzeit",
+        "Teilzeit",
+        "Bin noch offen"
+      ],
+      "pflicht": false
+    },
+    {
+      "name": "verfuegbar",
+      "frage": "Wann kannst Du starten?",
+      "typ": "auswahl",
+      "optionen": [
+        "Ab sofort",
+        "In weniger als 3 Monaten",
+        "In mehr als 3 Monaten"
+      ],
+      "pflicht": false
+    }
+  ],
+  "bild": "assets/img/stelle-zfa.jpg",
+  "bild_alt": "Zwei Kolleginnen klatschen sich im Behandlungszimmer ab"
+}

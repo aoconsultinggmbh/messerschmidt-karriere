@@ -1,0 +1,41 @@
+{
+  "stand": "2026-10-06",
+  "stellen": [
+    {
+      "kennung": "zfa-mainz",
+      "titel": "ZFA / Zahnmedizinische Fachangestellte (m/w/d) in Voll- oder Teilzeit",
+      "status": "aktiv",
+      "ort": "Mainz-Laubenheim",
+      "url": "https://zahnzentrum-messerschmidt-karriere.de/stellen/zfa-mainz.html",
+      "veroeffentlicht": "2026-10-06",
+      "gueltig_bis": "2026-11-20",
+      "empfaenger": [
+        "tofik@ao-consult.de"
+      ]
+    },
+    {
+      "kennung": "zmp-zmf-mainz",
+      "titel": "ZMP / ZMF – Zahnmedizinische Prophylaxe- oder Fachassistenz (m/w/d)",
+      "status": "aktiv",
+      "ort": "Mainz-Laubenheim",
+      "url": "https://zahnzentrum-messerschmidt-karriere.de/stellen/zmp-zmf-mainz.html",
+      "veroeffentlicht": "2026-10-06",
+      "gueltig_bis": "2026-11-20",
+      "empfaenger": [
+        "tofik@ao-consult.de"
+      ]
+    },
+    {
+      "kennung": "ausbildung-zfa-mainz",
+      "titel": "Ausbildung zur ZFA / Zahnmedizinischen Fachangestellten (m/w/d) 2027",
+      "status": "aktiv",
+      "ort": "Mainz-Laubenheim",
+      "url": "https://zahnzentrum-messerschmidt-karriere.de/stellen/ausbildung-zfa-mainz.html",
+      "veroeffentlicht": "2026-10-06",
+      "gueltig_bis": "2026-11-20",
+      "empfaenger": [
+        "tofik@ao-consult.de"
+      ]
+    }
+  ]
+}

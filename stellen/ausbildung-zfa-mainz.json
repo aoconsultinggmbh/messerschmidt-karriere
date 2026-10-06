@@ -1,0 +1,62 @@
+{
+  "status": "aktiv",
+  "standort": "mainz",
+  "befristung": null,
+  "gehalt": {
+    "_hinweis": "Nur nach Freigabe der Kundin eintragen.",
+    "min": null,
+    "max": null,
+    "waehrung": "EUR",
+    "einheit": "MONTH"
+  },
+  "erfahrung_monate": null,
+  "bewerbungen_an": [],
+  "ansprechpartner": null,
+  "alte_adresse": "",
+  "veroeffentlicht": "2026-10-06",
+  "gueltig_bis": "2026-11-20",
+  "_datum_hinweis": "veroeffentlicht und gueltig_bis setzt scripts/stellen-aktualisieren.py monatlich neu. Von Hand nur beim Anlegen eintragen.",
+  "arbeitszeit": null,
+  "wir_bieten": null,
+  "_hinweis": "Standardtext AO Consulting. Beginn September 2027, Anzahl der Plätze bewusst NICHT nennen (Vorgabe Awan). Praxis darf ausbilden (Onboarding).",
+  "kennung": "ausbildung-zfa-mainz",
+  "titel": "Ausbildung zur ZFA / Zahnmedizinischen Fachangestellten (m/w/d) 2027",
+  "titel_kurz": "Ausbildung ZFA 2027",
+  "reihenfolge": 3,
+  "beschaeftigungsart": [
+    "AUSBILDUNG"
+  ],
+  "beginn": "September 2027",
+  "kurz": "Starte im September 2027 Deine Ausbildung zur Zahnmedizinischen Fachangestellten – mit Einarbeitungsplan, netten Kollegen und modernen Räumen.",
+  "einleitung": "Unser Zahnzentrum in Mainz-Laubenheim liegt in einem eigens dafür gebauten Haus: hell, modern und nach ökologischen Gesichtspunkten geplant. Viel Licht, freundliche Farben und vier moderne Behandlungszimmer sorgen dafür, dass sich Patienten und Team bei uns wohlfühlen.\n\nBei uns steckt die Kompetenz im Detail – und dafür brauchen wir ein Team, das mit Sorgfalt und Herz bei der Sache ist. Nette Kolleginnen und Kollegen, ein strukturierter Einarbeitungsplan und echte Weiterbildungsmöglichkeiten warten auf Dich.\n\nDu möchtest in einem Gesundheitsberuf mit Zukunft durchstarten? Dann begleiten wir Dich Schritt für Schritt durch Deine Ausbildung.",
+  "aufgaben": [
+    "Du lernst die Assistenz bei zahnärztlichen Behandlungen von Grund auf",
+    "Du erfährst alles über Hygiene und die Aufbereitung von Instrumenten",
+    "Du betreust Patienten am Empfang und im Behandlungszimmer",
+    "Du lernst Abrechnung, Terminplanung und Praxisorganisation kennen",
+    "Die Berufsschule ergänzt Deine Zeit bei uns in der Praxis"
+  ],
+  "profil": [
+    "Schulabschluss (Berufsreife, Mittlere Reife oder Abitur)",
+    "Interesse an Medizin und Freude am Umgang mit Menschen",
+    "Freundliches Auftreten, Zuverlässigkeit und Teamgeist",
+    "Sorgfalt und Lust, Neues zu lernen"
+  ],
+  "qualifikation_erforderlich": "Schulabschluss",
+  "formular_zusatzfragen": [
+    {
+      "name": "schulabschluss",
+      "frage": "Welchen Schulabschluss hast Du (oder machst Du gerade)?",
+      "typ": "text",
+      "pflicht": false
+    },
+    {
+      "name": "praktikum",
+      "frage": "Hast Du schon ein Praktikum in einer Zahnarztpraxis gemacht?",
+      "typ": "janein",
+      "pflicht": false
+    }
+  ],
+  "bild": "assets/img/stelle-ausbildung.jpg",
+  "bild_alt": "Zahnärztin und junge Kollegin im Behandlungszimmer"
+}

@@ -1,0 +1,118 @@
+{
+  "_hinweis": "Stammdaten des Kunden. Alles, was hier steht, landet auf der Seite und in den Google-Daten. Nichts erfinden – lieber leer lassen und nachfragen. Quellen: Onboarding-PDF (Stand 06.10.2026), Hauptseite zahnzentrum-messerschmidt.de (ausgelesen 06.10.2026), Vorgaben Awan Tofik im Chat. Offene Punkte: doku/entscheidungen.md.",
+  "kennung": "messerschmidt",
+  "firma": "Zahnzentrum Messerschmidt",
+  "firma_lang": "Zahnzentrum Messerschmidt – Dr. Sabine Messerschmidt, Zahnärztin in Mainz-Laubenheim",
+  "branche": "Zahnarztpraxis",
+  "kurzbeschreibung": "Zahnarztpraxis in einem eigens dafür gebauten, hellen und modernen Haus in Mainz-Laubenheim.",
+  "hauptseite": "https://zahnzentrum-messerschmidt.de",
+  "domain": "zahnzentrum-messerschmidt-karriere.de",
+  "vorschau_domain": "messerschmidt-karriere.vorschau.ao-consult.de",
+  "vorschau": true,
+  "standorte": [
+    {
+      "kennung": "mainz",
+      "name": "Zahnzentrum Messerschmidt",
+      "strasse": "Parkstraße 33",
+      "plz": "55130",
+      "ort": "Mainz-Laubenheim",
+      "region": "Rheinland-Pfalz",
+      "land": "DE",
+      "telefon": "+49 6131 86926",
+      "email": "info@zahnzentrum-messerschmidt.de",
+      "google_maps": ""
+    }
+  ],
+  "ansprechpartner": {
+    "name": "Dr. Sabine Messerschmidt",
+    "rolle": "Zahnärztin | Praxisinhaberin",
+    "telefon": "06131 86926",
+    "email": "info@zahnzentrum-messerschmidt.de",
+    "whatsapp": "+4915154321140",
+    "foto": "assets/img/ansprechpartner.jpg"
+  },
+  "bewerbungen": {
+    "_hinweis": "TESTPHASE: Bewerbungen gehen an tofik@ao-consult.de (Vorgabe Awan). Vor dem Livegang auf die Adresse der Praxis umstellen (Vorschlag: karriere@zahnzentrum-messerschmidt.de – Kundin fragen).",
+    "standard_empfaenger": [
+      "tofik@ao-consult.de"
+    ],
+    "absender": "jobs@zahnzentrum-messerschmidt-karriere.de",
+    "absender_name": "Zahnzentrum Messerschmidt Karriere",
+    "antwortzeit": "Wir melden uns schnellstmöglich bei Dir.",
+    "unterlagen_optional": true,
+    "max_dateien": 3,
+    "max_mb_je_datei": 10,
+    "loeschfrist_monate": 6
+  },
+  "ci": {
+    "farbe_primaer": "#006eb7",
+    "farbe_akzent": "#84d0f5",
+    "farbe_hintergrund": "#ffffff",
+    "farbe_text": "#636363",
+    "schrift_ueberschrift": "Roboto Condensed",
+    "schrift_text": "Open Sans",
+    "logo": "assets/img/logo.png",
+    "logo_breite": 246,
+    "logo_hoehe": 135,
+    "quelle": "CI von der Hauptseite zahnzentrum-messerschmidt.de (ausgelesen 06.10.2026): Überschriften Roboto Condensed Light 300 in Versalien #636363, Fließtext Open Sans #636363, Dunkel #27363f, Menü-Akzent Hellblau #83d0f0 als Unterstrich, Flächen #eff1f3 / #dce1e4. Blau #006eb7 und Hellblau #84d0f5 aus dem Logo. Logo: PNG 246×135 von der Hauptseite (SVG kommt laut Onboarding von der Kundin). Schriften liegen lokal (SIL Open Font License, aus @fontsource)."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/zahnzentrum_messerschmidt/",
+    "facebook": "https://www.facebook.com/zahnzentrummesserschmidt/",
+    "linkedin": "",
+    "youtube": "",
+    "tiktok": "",
+    "kununu": "",
+    "jameda": ""
+  },
+  "seo": {
+    "berufe_kurz": "ZFA, ZMP, ZMF & Azubi",
+    "regionen": [
+      "Mainz",
+      "Mainz-Laubenheim",
+      "Rheinhessen"
+    ],
+    "og_bild": "assets/img/og-bild.jpg"
+  },
+  "google_for_jobs": {
+    "gueltigkeit_tage": 45,
+    "datum_monatlich_erneuern": true,
+    "indeed_feed": true
+  },
+  "statistik": {
+    "matomo_url": "https://statistik.ao-consult.de/",
+    "matomo_id": ""
+  },
+  "rechtliches": {
+    "inhaber": "Dr. Sabine Messerschmidt",
+    "rechtsform": "",
+    "umsatzsteuer_id": "",
+    "steuer_hinweis": "Auf der Hauptseite steht unter „Umsatzsteueridentifikationsnummer“ der Wert 28/114/5003/0 – das ist das Format einer Steuernummer, keine USt-IdNr. (DE + 9 Ziffern). Übernommen wie auf der Hauptseite, mit der Kundin klären.",
+    "kammer": "Landeszahnärztekammer Rheinland-Pfalz, Langenbeckstraße 2, 55131 Mainz",
+    "kzv": "",
+    "berufsbezeichnung": "Zahnärztin (verliehen in der Bundesrepublik Deutschland)",
+    "fax": "06131 86936",
+    "email_praxis": "info@zahnzentrum-messerschmidt.de",
+    "datenschutzbeauftragte": "Walburga Baronin van Hövell, Am Hofgarten 3, 53113 Bonn",
+    "hoster": "ALL-INKL.COM – Neue Medien Münnich, Hauptstraße 68, 02742 Friedersdorf"
+  },
+  "benefits_standard": [
+    "Attraktive Bezahlung",
+    "Vermögenswirksame Leistungen",
+    "Fahrtkostenzuschüsse",
+    "Regelmäßige Teambesprechungen",
+    "Mitarbeiterevents",
+    "Kaffee",
+    "Einarbeitungsplan",
+    "Weiterbildungsmöglichkeiten",
+    "Karrieremöglichkeiten",
+    "Flexible Arbeitszeiten",
+    "Teilzeitmöglichkeiten",
+    "Berufs- und Wiedereinsteiger sind willkommen",
+    "Ergonomische Arbeitsplätze",
+    "Klimatisierter Arbeitsbereich",
+    "Gute Parksituation",
+    "Gute Verkehrsanbindung",
+    "Gute Einkaufsmöglichkeiten"
+  ]
+}
