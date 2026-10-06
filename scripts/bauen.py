@@ -32,7 +32,7 @@ GENERIERT = "generiert von scripts/bauen.py"
 
 STATUS_TEXT = {
     "aktiv": "Offene Stelle",
-    "initiativ": "Aktuell besetzt – Initiativbewerbung willkommen",
+    "initiativ": "Aktuell besetzt, Initiativbewerbung willkommen",
 }
 BESCHAEFTIGUNG_TEXT = {
     "VOLLZEIT": "Vollzeit", "TEILZEIT": "Teilzeit", "AUSBILDUNG": "Ausbildung",
@@ -128,7 +128,7 @@ def jobposting(k: dict, s: dict, st: dict, url: str, basis: str) -> dict:
         + "<h3>Wir bieten</h3><ul>" + liste_html(s["wir_bieten"]) + "</ul>"
     )
     if s.get("status") == "initiativ":
-        beschreibung = "<p><strong>Diese Stelle ist aktuell besetzt – Initiativbewerbungen sind ausdrücklich willkommen.</strong></p>" + beschreibung
+        beschreibung = "<p><strong>Diese Stelle ist aktuell besetzt. Initiativbewerbungen sind ausdrücklich willkommen.</strong></p>" + beschreibung
     org = {
         "@type": "Organization",
         "name": k["firma"],
@@ -326,7 +326,7 @@ def baue(projekt: Path) -> int:
         gehalt_fakt = ""
         if g.get("min") or g.get("max"):
             einheit = {"MONTH": "/ Monat", "YEAR": "/ Jahr", "HOUR": "/ Stunde"}.get(g.get("einheit", "MONTH"), "")
-            spanne = " – ".join(f"{v:,}".replace(",", ".") + " €" for v in (g.get("min"), g.get("max")) if v)
+            spanne = " bis ".join(f"{v:,}".replace(",", ".") + " €" for v in (g.get("min"), g.get("max")) if v)
             gehalt_fakt = f"<div><dt>Gehalt</dt><dd>{esc(spanne)} {esc(einheit)}</dd></div>"
 
         werte = {
@@ -417,7 +417,7 @@ def baue(projekt: Path) -> int:
     if index.exists():
         txt = index.read_text(encoding="utf-8")
         if MARKER_ANFANG in txt and MARKER_ENDE in txt:
-            block = "\n".join(eintraege) if eintraege else '<p class="keine-stellen">Aktuell sind alle Stellen besetzt – wir freuen uns über Initiativbewerbungen.</p>'
+            block = "\n".join(eintraege) if eintraege else '<p class="keine-stellen">Aktuell sind alle Stellen besetzt. Wir freuen uns über Initiativbewerbungen.</p>'
             itemlist = json.dumps({
                 "@context": "https://schema.org", "@type": "ItemList",
                 "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": u["url"]} for i, u in enumerate(uebersicht)],

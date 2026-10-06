@@ -9,6 +9,6 @@ return [
   '_max_mb' => 10,
   '_loeschfrist_monate' => 6,
   "zfa-mainz" => ['empfaenger' => ["info@zahnzentrum-messerschmidt.de"], 'titel' => "ZFA / Zahnmedizinische Fachangestellte (m/w/d) in Voll- oder Teilzeit", 'standort' => "Mainz-Laubenheim"],
-  "zmp-zmf-mainz" => ['empfaenger' => ["info@zahnzentrum-messerschmidt.de"], 'titel' => "ZMP / ZMF – Zahnmedizinische Prophylaxe- oder Fachassistenz (m/w/d)", 'standort' => "Mainz-Laubenheim"],
+  "zmp-zmf-mainz" => ['empfaenger' => ["info@zahnzentrum-messerschmidt.de"], 'titel' => "ZMP / ZMF: Zahnmedizinische Prophylaxe- oder Fachassistenz (m/w/d)", 'standort' => "Mainz-Laubenheim"],
   "ausbildung-zfa-mainz" => ['empfaenger' => ["info@zahnzentrum-messerschmidt.de"], 'titel' => "Ausbildung zur ZFA / Zahnmedizinischen Fachangestellten (m/w/d) 2027", 'standort' => "Mainz-Laubenheim"],
 ];

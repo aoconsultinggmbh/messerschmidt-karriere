@@ -126,7 +126,7 @@ if ($anhaenge) {
     $kopf .= "Content-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
     $body = $text;
 }
-$ok1 = mail(implode(', ', $empfaenger), betreff("Bewerbung: {$stelle['titel']} – $name"), $body, $kopf, "-f$absender");
+$ok1 = mail(implode(', ', $empfaenger), betreff("Bewerbung: {$stelle['titel']}, $name"), $body, $kopf, "-f$absender");
 
 // --- Mail 2: Eingangsbestätigung an den Bewerber ---
 $bestaetigung = "Hallo $name,\r\n\r\n"
@@ -141,4 +141,4 @@ $kopf2 = "From: " . betreff($absenderName) . " <$absender>\r\n"
 $ok2 = mail($email, betreff("Deine Bewerbung bei {$konfig['_firma']} ist eingegangen"), $bestaetigung, $kopf2, "-f$absender");
 
 if (!$ok1) antwort(false, 'Der Versand hat nicht geklappt. Bitte schick Deine Bewerbung direkt per E-Mail an ' . $empfaenger[0] . '.', 500);
-antwort(true, 'Danke! Deine Bewerbung ist angekommen' . ($ok2 ? ' – eine Bestätigung ist unterwegs an ' . $email . '.' : '.'));
+antwort(true, 'Danke! Deine Bewerbung ist angekommen' . ($ok2 ? '. Eine Bestätigung ist unterwegs an ' . $email . '.' : '.'));

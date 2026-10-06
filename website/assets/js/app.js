@@ -54,7 +54,7 @@
     var daten = new FormData(form);
     var body = ['Name: ' + daten.get('name'), 'E-Mail: ' + daten.get('email'), 'Telefon: ' + daten.get('telefon'), '', daten.get('nachricht') || ''].join('\n');
     var href = link.getAttribute('href').split('&body=')[0] + '&body=' + encodeURIComponent(body);
-    zeige(grund + ' Dein Mailprogramm öffnet sich mit Deinen Angaben – bitte dort noch den Lebenslauf anhängen.', true);
+    zeige(grund + ' Dein Mailprogramm öffnet sich mit Deinen Angaben. Bitte dort noch den Lebenslauf anhängen.', true);
     window.location.href = href;
   }
 

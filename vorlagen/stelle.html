@@ -76,7 +76,7 @@
       <div id="bewerben" class="bewerben">
         <span class="dachzeile">Bewerbung</span>
         <h2>Bewirb Dich jetzt als {{titel_kurz}}</h2>
-        <p>Name, Kontakt und – wenn Du magst – Dein Lebenslauf reichen. Ein Anschreiben brauchst Du nicht. {{antwortzeit}}</p>
+        <p>Name, Kontakt und, wenn Du magst, Dein Lebenslauf reichen. Ein Anschreiben brauchst Du nicht. {{antwortzeit}}</p>
 
       <form class="bewerbungsformular" action="../bewerbung-senden.php" method="post" enctype="multipart/form-data" novalidate>
         <input type="hidden" name="stelle" value="{{kennung}}">
@@ -104,11 +104,11 @@
 
         <div class="feld">
           <label for="nachricht">Ein paar Worte zu Dir (optional)</label>
-          <textarea id="nachricht" name="nachricht" rows="5" placeholder="Wer Du bist, was Dich auszeichnet und was Deine Motivation ist – zwei, drei Sätze reichen."></textarea>
+          <textarea id="nachricht" name="nachricht" rows="5" placeholder="Wer Du bist, was Dich auszeichnet und was Deine Motivation ist. Zwei, drei Sätze reichen."></textarea>
         </div>
 
         <div class="feld">
-          <label for="unterlagen">Lebenslauf / Unterlagen (PDF, optional – bis zu {{max_dateien}} Dateien, je max. {{max_mb}} MB)</label>
+          <label for="unterlagen">Lebenslauf / Unterlagen (PDF, optional, bis zu {{max_dateien}} Dateien, je max. {{max_mb}} MB)</label>
           <input id="unterlagen" name="unterlagen[]" type="file" accept="application/pdf,.pdf" multiple>
         </div>
 

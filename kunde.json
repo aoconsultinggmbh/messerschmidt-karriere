@@ -2,7 +2,7 @@
   "_hinweis": "Stammdaten des Kunden. Alles, was hier steht, landet auf der Seite und in den Google-Daten. Nichts erfinden – lieber leer lassen und nachfragen. Quellen: Onboarding-PDF (Stand 06.10.2026), Hauptseite zahnzentrum-messerschmidt.de (ausgelesen 06.10.2026), Vorgaben Awan Tofik im Chat. Offene Punkte: doku/entscheidungen.md.",
   "kennung": "messerschmidt",
   "firma": "Zahnzentrum Messerschmidt",
-  "firma_lang": "Zahnzentrum Messerschmidt – Dr. Sabine Messerschmidt, Zahnärztin in Mainz-Laubenheim",
+  "firma_lang": "Zahnzentrum Messerschmidt, Dr. Sabine Messerschmidt, Zahnärztin in Mainz-Laubenheim",
   "branche": "Zahnarztpraxis",
   "kurzbeschreibung": "Zahnarztpraxis in einem eigens dafür gebauten, hellen und modernen Haus in Mainz-Laubenheim.",
   "hauptseite": "https://zahnzentrum-messerschmidt.de",
@@ -94,7 +94,7 @@
     "fax": "06131 86936",
     "email_praxis": "info@zahnzentrum-messerschmidt.de",
     "datenschutzbeauftragte": "Walburga Baronin van Hövell, Am Hofgarten 3, 53113 Bonn",
-    "hoster": "ALL-INKL.COM – Neue Medien Münnich, Hauptstraße 68, 02742 Friedersdorf"
+    "hoster": "ALL-INKL.COM, Neue Medien Münnich, Hauptstraße 68, 02742 Friedersdorf"
   },
   "benefits_standard": [
     "Attraktive Bezahlung",
