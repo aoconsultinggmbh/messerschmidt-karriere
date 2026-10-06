@@ -178,6 +178,11 @@ def jobposting(k: dict, s: dict, st: dict, url: str, basis: str) -> dict:
     return jp
 
 
+def wa_text(s: dict) -> str:
+    from urllib.parse import quote
+    return esc(quote(f"Hallo, ich interessiere mich für die Stelle {s['titel_kurz']}."))
+
+
 def zusatzfragen_html(fragen) -> str:
     teile = []
     for f in fragen or []:
@@ -210,8 +215,9 @@ def nebenseiten_rahmen(web: Path, fehler: list) -> None:
     """Kopfzeile (Menü) und Fuß aus index.html in danke.html, fehler.html und rechtliches/*.html einsetzen.
     Beim ersten Lauf werden sie nach <body> bzw. vor </body> eingefügt, danach zwischen den Markern erneuert."""
     txt = (web / "index.html").read_text(encoding="utf-8")
-    mk = re.search(r"<header class=\"kopf\">.*?</header>", txt, flags=re.S)
+    mk = re.search(r"<header class=\"kopf[^\"]*\">.*?</header>", txt, flags=re.S)
     mf = re.search(r"<footer class=\"fuss\">.*?</footer>", txt, flags=re.S)
+    mw = re.search(r"<a class=\"whatsapp-schwebend\".*?</a>", txt, flags=re.S)
     if not (mk and mf):
         fehler.append("website/index.html: <header class=\"kopf\"> oder <footer class=\"fuss\"> nicht gefunden")
         return
@@ -228,8 +234,8 @@ def nebenseiten_rahmen(web: Path, fehler: list) -> None:
             h = h.replace('href="rechtliches/', f'href="{praefix}rechtliches/')
             return h
 
-        kopf = f'{RAHMEN_KOPF[0]}\n<a class="skip" href="#inhalt">Zum Inhalt springen</a>\n{pfade(mk.group(0))}\n{RAHMEN_KOPF[1]}'
-        fuss = f'{RAHMEN_FUSS[0]}\n{pfade(mf.group(0))}\n<script src="{praefix}assets/js/app.js" defer></script>\n{RAHMEN_FUSS[1]}'
+        kopf = f'{RAHMEN_KOPF[0]}\n<a class="skip" href="#inhalt">Zum Inhalt springen</a>\n{pfade(weisser_kopf(mk.group(0)))}\n{RAHMEN_KOPF[1]}'
+        fuss = (f'{RAHMEN_FUSS[0]}\n{pfade(mf.group(0))}\n{mw.group(0) if mw else ""}\n' + skripte(praefix) + f'\n{RAHMEN_FUSS[1]}')
         s = seite.read_text(encoding="utf-8")
         if RAHMEN_KOPF[0] in s:
             s = re.sub(re.escape(RAHMEN_KOPF[0]) + r".*?" + re.escape(RAHMEN_KOPF[1]), lambda m: kopf, s, flags=re.S)
@@ -243,10 +249,45 @@ def nebenseiten_rahmen(web: Path, fehler: list) -> None:
         seite.write_text(s, encoding="utf-8")
 
 
+def weisser_kopf(h: str) -> str:
+    """Nur die Startseite hat den durchsichtigen Kopf über dem Foto, alle anderen Seiten den weißen."""
+    return re.sub(r'<header class="kopf[^"]*">', '<header class="kopf">', h, count=1)
+
+
+def skripte(praefix: str) -> str:
+    """Skripte am Seitenende, auf allen Seiten gleich (AO-Standard: Einwilligung und Barrierefreiheit)."""
+    return "\n".join([
+        f'<script src="{praefix}assets/js/konfiguration.js"></script>',
+        f'<script src="{praefix}assets/js/ao-konfiguration.js" defer></script>',
+        f'<script src="{praefix}assets/js/einwilligung.js" defer></script>',
+        f'<script src="{praefix}assets/js/barrierefreiheit.js" defer></script>',
+        f'<script src="{praefix}assets/js/app.js" defer></script>',
+        f'<script src="{praefix}assets/js/statistik.js" defer></script>'])
+
+
+def versionen(web: Path) -> None:
+    """Hängt an CSS- und JS-Adressen ?v=<Prüfsumme>, damit Browser nach Änderungen nichts Altes aus dem Zwischenspeicher zeigen."""
+    import hashlib
+    cache = {}
+
+    def v(datei: str) -> str:
+        if datei not in cache:
+            p = web / "assets" / datei
+            cache[datei] = hashlib.md5(p.read_bytes()).hexdigest()[:8] if p.exists() else ""
+        return cache[datei]
+
+    muster = re.compile(r'((?:\.\./|/)?assets/((?:css|js)/[\w.-]+\.(?:css|js)))(?:\?v=\w*)?"')
+    for seite in web.rglob("*.html"):
+        t = seite.read_text(encoding="utf-8")
+        neu = muster.sub(lambda m: f'{m.group(1)}?v={v(m.group(2))}"' if v(m.group(2)) else m.group(0), t)
+        if neu != t:
+            seite.write_text(neu, encoding="utf-8")
+
+
 def stellen_rahmen(web: Path) -> tuple:
     """Kopf und Fuß der Startseite für die Stellenseiten (Unterordner stellen/ → Pfade mit ../)."""
     txt = (web / "index.html").read_text(encoding="utf-8")
-    mk = re.search(r"<header class=\"kopf\">.*?</header>", txt, flags=re.S)
+    mk = re.search(r"<header class=\"kopf[^\"]*\">.*?</header>", txt, flags=re.S)
     mf = re.search(r"<footer class=\"fuss\">.*?</footer>", txt, flags=re.S)
     mw = re.search(r"<a class=\"whatsapp-schwebend\".*?</a>", txt, flags=re.S)
 
@@ -256,7 +297,7 @@ def stellen_rahmen(web: Path) -> tuple:
         h = h.replace('src="assets/', 'src="../assets/')
         h = h.replace('href="rechtliches/', 'href="../rechtliches/')
         return h
-    return (pfade(mk.group(0)) if mk else "", pfade(mf.group(0)) if mf else "", mw.group(0) if mw else "")
+    return (pfade(weisser_kopf(mk.group(0))) if mk else "", pfade(mf.group(0)) if mf else "", mw.group(0) if mw else "")
 
 
 def baue(projekt: Path) -> int:
@@ -336,7 +377,8 @@ def baue(projekt: Path) -> int:
             "marken_html": (f'<span class="marke marke-gruen">Offen</span><span class="marke marke-gruen">{esc(s.get("beginn") or "nach Vereinbarung")}</span>'
                             if s["status"] == "aktiv" else '<span class="marke marke-orange">Initiativ</span>'),
             "einleitung_html": text_zu_html(s["einleitung"]),
-            "seitentitel": f"{s['titel_kurz']} (m/w/d) in {st['ort']} | {kunde['firma']}"
+            # seo_titel (optional, bis etwa 60 Zeichen) geht vor: Google kürzt längere Titel ab
+            "seitentitel": s["seo_titel"] if s.get("seo_titel") else f"{s['titel_kurz']} (m/w/d) in {st['ort']} | {kunde['firma']}"
             if "(m/w/d)" not in s["titel_kurz"] else f"{s['titel_kurz']} in {st['ort']} | {kunde['firma']}",
             "meta_beschreibung": kuerzen(f"{s['titel_kurz']} in {st['ort']} bei {kunde['firma']}: {s['kurz']}", 155),
             "url": url, "og_bild": f"{basis}/{s.get('bild') or kunde.get('seo', {}).get('og_bild', '')}",
@@ -351,8 +393,14 @@ def baue(projekt: Path) -> int:
             "gehalt_fakt": gehalt_fakt,
             "aufgaben_html": liste_html(s["aufgaben"]), "profil_html": liste_html(s["profil"]),
             "wir_bieten_html": liste_html(s["wir_bieten"]),
-            "bild_block": (f'<figure class="stelle-bild"><img src="../{esc(s["bild"])}" alt="{esc(s.get("bild_alt", ""))}" width="1200" height="675" loading="lazy"></figure>'
-                           if s.get("bild") else ""),
+            "seitenkopf_klasse": " mit-bild" if s.get("bild") else "",
+            "kopf_bild": (('<div class="seitenkopf-bild" data-parallax><picture>'
+                           + (f'<source srcset="../{esc(Path(s["bild"]).with_suffix(".webp").as_posix())}" type="image/webp">'
+                              if (web / Path(s["bild"]).with_suffix(".webp")).exists() else "")
+                           + f'<img src="../{esc(s["bild"])}" alt="{esc(s.get("bild_alt", ""))}" width="1920" height="1080" fetchpriority="high"></picture></div>')
+                          if s.get("bild") else ""),
+            "whatsapp_knopf_hell": (f'<a class="knopf knopf-rand-hell" href="https://wa.me/{esc(ap["whatsapp"].lstrip("+").replace(" ", ""))}?text={wa_text(s)}" rel="noopener" target="_blank">Per WhatsApp schreiben</a>'
+                                    if ap.get("whatsapp") else ""),
             "zusatzfragen_html": zusatzfragen_html(s.get("formular_zusatzfragen")),
             "max_dateien": bew.get("max_dateien", 3), "max_mb": bew.get("max_mb_je_datei", 10),
             "antwortzeit": bew.get("antwortzeit", ""),
@@ -362,14 +410,14 @@ def baue(projekt: Path) -> int:
             "standort_region_html": f"<br>{esc(st['region'])}" if st.get("region") else "",
             # Ansprechpartner als Karte in der rechten Spalte (Vorbild ao-karriere.de): rundes Foto, Name, Rolle, Mail-Knopf, Telefon
             "ansprechpartner_block": (
-                '<div class="karte karte-akzent ansprech-karte">'
-                '<p class="dachzeile">' + esc(ap.get("titel") or "Deine Ansprechpartnerin") + '</p>'
-                + (f'<img src="../{esc(ap["foto"])}" alt="{esc(ap.get("name"))}" width="120" height="120" loading="lazy">' if ap.get("foto") else "")
+                '<div class="ansprech-karte">'
+                '<p class="klein-titel">' + esc(ap.get("titel") or "Deine Ansprechpartnerin") + '</p>'
+                + (f'<img src="../{esc(ap["foto"])}" alt="{esc(ap.get("name"))}" width="116" height="116" loading="lazy">' if ap.get("foto") else "")
                 + f'<p class="ansprech-name"><strong>{esc(ap.get("name"))}</strong>'
                 + (f'<br><span>{esc(ap["rolle"])}</span>' if ap.get("rolle") else "") + "</p>"
-                + (f'<a class="knopf knopf-hell knopf-mittel" href="mailto:{esc(ap["email"])}?subject={html.escape("Bewerbung: " + s["titel_kurz"]).replace(" ", "%20")}">E-Mail schreiben</a>' if ap.get("email") else "")
-                + (f'<a class="knopf knopf-whatsapp knopf-mittel" href="https://wa.me/{esc(ap["whatsapp"].lstrip("+").replace(" ", ""))}?text={html.escape("Hallo, ich interessiere mich für die Stelle " + s["titel_kurz"] + ".").replace(" ", "%20")}" rel="noopener" target="_blank">Per WhatsApp schreiben</a>' if ap.get("whatsapp") else "")
-                + (f'<p class="ansprech-kontakt"><a href="tel:{esc(ap["telefon"].replace(" ", ""))}">Telefon {esc(ap["telefon"])}</a></p>' if ap.get("telefon") else "")
+                + '<a class="knopf" href="#bewerben">Jetzt bewerben</a>'
+                + (f'<a class="knopf knopf-rand" href="https://wa.me/{esc(ap["whatsapp"].lstrip("+").replace(" ", ""))}?text={wa_text(s)}" rel="noopener" target="_blank">Per WhatsApp schreiben</a>' if ap.get("whatsapp") else "")
+                + (f'<p class="ansprech-kontakt"><a href="tel:+49{esc(ap["telefon"].replace(" ", "").lstrip("0"))}">Telefon {esc(ap["telefon"])}</a></p>' if ap.get("telefon") else "")
                 + (f'<p class="ansprech-kontakt"><a href="mailto:{esc(ap["email"])}">{esc(ap["email"])}</a></p>' if ap.get("email") else "")
                 + "</div>") if ap.get("name") else "",
             "veroeffentlicht_lesbar": lesbar(s["veroeffentlicht"]), "gueltig_bis_lesbar": lesbar(s["gueltig_bis"]),
@@ -487,6 +535,9 @@ def baue(projekt: Path) -> int:
         "window.KARRIERE = " + json.dumps({"matomoId": str(stat.get("matomo_id", "") or ""),
                                            "matomoUrl": stat.get("matomo_url", "https://statistik.ao-consult.de/"),
                                            "domain": kunde["domain"]}, ensure_ascii=False) + ";\n", encoding="utf-8")
+
+    # --- Versionsnummern an CSS/JS (gegen alte Dateien im Zwischenspeicher) ---
+    versionen(web)
 
     # --- Bericht ---
     print(f"Gebaut: {len(sichtbar)} Stellen sichtbar ({sum(1 for s in sichtbar if s['status']=='aktiv')} aktiv, "

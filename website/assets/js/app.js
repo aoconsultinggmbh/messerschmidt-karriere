@@ -1,45 +1,116 @@
-/* app.js – Karriereseite: Navigation, Formularversand, Jahreszahl. Kein Framework, keine externen Abhängigkeiten. */
+/* app.js Karriereseite Zahnzentrum Messerschmidt: Menü, Kopf beim Scrollen, Einblenden, Leitsatz, Bewerbungsformular.
+   Bewegungen wie auf der Hauptseite. Kein Framework, nichts von außen. */
 (function () {
   'use strict';
+  var d = document, b = d.body, wurzel = d.documentElement;
+  wurzel.classList.add('js');
+  d.querySelectorAll('[data-jahr]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
 
-  document.querySelectorAll('[data-jahr]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
+  var ruhe = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var feinzeiger = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var istRuhig = function () { return ruhe || wurzel.classList.contains('bf-ruhe'); };
 
-  // Mobile Navigation
-  var schalter = document.querySelector('.navi-schalter');
-  var navi = document.querySelector('.hauptnavi');
+  // Menü auf dem Handy
+  var schalter = d.querySelector('.navi-schalter'), navi = d.querySelector('.hauptnavi');
   if (schalter && navi) {
     schalter.addEventListener('click', function () {
       var offen = navi.classList.toggle('offen');
+      b.classList.toggle('navi-offen', offen);
       schalter.setAttribute('aria-expanded', offen ? 'true' : 'false');
+      schalter.setAttribute('aria-label', offen ? 'Menü schließen' : 'Menü öffnen');
+    });
+    navi.querySelectorAll('a[href*="#"]').forEach(function (a) {
+      a.addEventListener('click', function () { navi.classList.remove('offen'); b.classList.remove('navi-offen'); schalter.setAttribute('aria-expanded', 'false'); });
     });
   }
 
-  // FAQ: nur ein Eintrag offen
-  document.querySelectorAll('.faq details').forEach(function (d) {
-    d.addEventListener('toggle', function () {
-      if (d.open) document.querySelectorAll('.faq details[open]').forEach(function (o) { if (o !== d) o.open = false; });
+  // Startseite: Kopf liegt durchsichtig über dem Foto und wird beim Scrollen weiß
+  var kopf = d.querySelector('.kopf-transparent');
+  if (kopf) {
+    var pruefen = function () { kopf.classList.toggle('kopf-transparent', window.scrollY < 60); };
+    window.addEventListener('scroll', pruefen, { passive: true }); pruefen();
+  }
+
+  // Sanftes Einblenden
+  var ziele = d.querySelectorAll('.abschnitt .text-spalte, .bild-quer, .kachel, .abschnitt-kopf, .benefit, .grund, .stelle-zeile');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (e) {
+      e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('sichtbar'); io.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    ziele.forEach(function (el) { el.classList.add('einblenden'); io.observe(el); });
+  }
+
+  // Hero: Überschrift Zeile für Zeile
+  requestAnimationFrame(function () { b.classList.add('geladen'); });
+
+  // Leitsatz: Wörter füllen sich beim Scrollen mit Farbe
+  var aussage = d.querySelector('[data-woerter]'), woerter = null;
+  if (aussage) {
+    aussage.innerHTML = aussage.textContent.trim().split(/\s+/).map(function (w) { return '<span>' + w + '</span>'; }).join(' ');
+    woerter = aussage.querySelectorAll('span');
+  }
+
+  var parallax = ruhe ? [] : d.querySelectorAll('[data-parallax]');
+  var kopfEl = d.querySelector('.kopf'), letzteY = window.scrollY, tick = false;
+  function beimScrollen() {
+    var y = window.scrollY, h = window.innerHeight;
+    if (woerter) {
+      var r = aussage.getBoundingClientRect();
+      var anteil = Math.min(Math.max((h * .85 - r.top) / (r.height + h * .45), 0), 1);
+      var n = Math.round(anteil * woerter.length);
+      woerter.forEach(function (w, i) { w.classList.toggle('an', i < n); });
+    }
+    if (!istRuhig()) parallax.forEach(function (el) {
+      var r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > h) return;
+      var v = (r.top + r.height / 2 - h / 2) * -0.12;
+      el.style.transform = 'translate3d(0,' + v.toFixed(1) + 'px,0) scale(1.12)';
+    });
+    if (kopfEl && !b.classList.contains('navi-offen')) kopfEl.classList.toggle('kopf-weg', y > letzteY && y > 400);
+    letzteY = y; tick = false;
+  }
+  window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(beimScrollen); } }, { passive: true });
+  beimScrollen();
+
+  // Lichtkegel folgt der Maus, Knöpfe mit leichtem Magnet-Effekt
+  if (feinzeiger && !ruhe) {
+    d.querySelectorAll('.stelle-zeile, .benefit, .kachel').forEach(function (k) {
+      k.addEventListener('pointermove', function (e) {
+        var r = k.getBoundingClientRect();
+        k.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        k.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+    d.querySelectorAll('.knopf').forEach(function (k) {
+      k.addEventListener('pointermove', function (e) {
+        if (istRuhig()) return;
+        var r = k.getBoundingClientRect();
+        k.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .25).toFixed(1) + 'px)';
+      });
+      k.addEventListener('pointerleave', function () { k.style.transform = ''; });
+    });
+  }
+
+  // FAQ: immer nur ein Eintrag offen
+  d.querySelectorAll('.faq-liste details').forEach(function (det) {
+    det.addEventListener('toggle', function () {
+      if (det.open) d.querySelectorAll('.faq-liste details[open]').forEach(function (o) { if (o !== det) o.open = false; });
     });
   });
 
-  // Team-Videos: Poster mit Abspielknopf, Video startet erst auf Klick (kein Autoload, kein Fremd-Player)
-  document.querySelectorAll('.stimme').forEach(function (fig) {
-    var knopf = fig.querySelector('.abspielen'); var video = fig.querySelector('video');
-    if (!knopf || !video) return;
-    knopf.addEventListener('click', function () {
-      fig.classList.add('laeuft'); video.setAttribute('controls', '');
-      var p = video.play();
-      if (p && p.catch) p.catch(function () { fig.classList.remove('laeuft'); knopf.setAttribute('aria-label', 'Video derzeit nicht verfügbar'); knopf.disabled = true; knopf.style.opacity = '.4'; });
-    });
-    video.addEventListener('error', function () { fig.classList.remove('laeuft'); knopf.disabled = true; knopf.style.opacity = '.4'; knopf.title = 'Video folgt'; });
+  // Knopf, der das Barrierefreiheits-Widget öffnet
+  d.querySelectorAll('[data-bf-oeffnen]').forEach(function (k) {
+    k.addEventListener('click', function () { var bk = d.querySelector('.bf-knopf'); if (bk) bk.click(); });
   });
 
   // Bewerbungsformular
-  var form = document.querySelector('.bewerbungsformular');
+  var form = d.querySelector('.bewerbungsformular');
   if (!form) return;
   var meldung = form.querySelector('.formular-meldung');
   var knopf = form.querySelector('button[type="submit"]');
   var zeit = form.querySelector('input[name="zeit"]');
   if (zeit) zeit.value = String(Date.now());
+  var maxMb = +(form.getAttribute('data-max-mb') || 10), maxDateien = +(form.getAttribute('data-max-dateien') || 3);
 
   function zeige(text, fehler) {
     meldung.textContent = text;
@@ -48,7 +119,7 @@
   }
 
   function mailRueckfall(grund) {
-    // Kein PHP (Vorschau auf GitHub Pages) oder Versand gescheitert: Mailprogramm öffnen – es geht keine Bewerbung verloren.
+    // Kein PHP (Vorschau) oder Versand gescheitert: Mailprogramm öffnen, damit keine Bewerbung verloren geht.
     var link = form.querySelector('a[href^="mailto:"]');
     if (!link) return zeige(grund, true);
     var daten = new FormData(form);
@@ -60,19 +131,19 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    // zweite Prüfung der Pflichtfelder (erste: required im Browser, dritte: PHP)
     var pflicht = ['name', 'email', 'telefon'];
     for (var i = 0; i < pflicht.length; i++) {
       var f = form.elements[pflicht[i]];
-      if (!f || !f.value.trim()) { f && f.focus(); return zeige('Bitte alle Pflichtfelder (*) ausfüllen.', true); }
+      if (!f || !f.value.trim()) { if (f) f.focus(); return zeige('Bitte alle Pflichtfelder (*) ausfüllen.', true); }
     }
-    if (!form.elements['datenschutz'].checked) return zeige('Bitte der Datenverarbeitung zustimmen.', true);
     var email = form.elements['email'].value;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { form.elements['email'].focus(); return zeige('Bitte eine gültige E-Mail-Adresse angeben.', true); }
+    if (!form.elements['datenschutz'].checked) return zeige('Bitte der Datenverarbeitung zustimmen.', true);
     var dateien = form.elements['unterlagen[]'] ? form.elements['unterlagen[]'].files : [];
+    if (dateien.length > maxDateien) return zeige('Bitte höchstens ' + maxDateien + ' Dateien anhängen.', true);
     for (var j = 0; j < dateien.length; j++) {
       if (!/\.pdf$/i.test(dateien[j].name)) return zeige('Bitte nur PDF-Dateien anhängen.', true);
-      if (dateien[j].size > 10 * 1024 * 1024) return zeige('Eine Datei ist größer als 10 MB.', true);
+      if (dateien[j].size > maxMb * 1024 * 1024) return zeige('Eine Datei ist größer als ' + maxMb + ' MB.', true);
     }
 
     knopf.disabled = true;
@@ -81,16 +152,17 @@
       method: 'POST', body: new FormData(form),
       headers: { 'Accept': 'application/json', 'X-Requested-With': 'fetch' }
     }).then(function (r) {
-      var typ = r.headers.get('content-type') || '';
-      if (typ.indexOf('application/json') === -1) throw new Error('kein-php');
+      if ((r.headers.get('content-type') || '').indexOf('application/json') === -1) throw new Error('kein-php');
       return r.json();
-    }).then(function (d) {
-      if (d.ok) { zeige(d.meldung, false); form.reset(); form.querySelectorAll('.feld, button, .hinweis-klein').forEach(function (el) { el.hidden = true; }); meldung.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-      else { zeige(d.meldung, true); knopf.disabled = false; }
+    }).then(function (res) {
+      if (res.ok) {
+        zeige(res.meldung, false); form.reset();
+        form.querySelectorAll('.feld, .feld-reihe, button, .klein').forEach(function (el) { el.hidden = true; });
+        meldung.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else { zeige(res.meldung, true); knopf.disabled = false; }
     }).catch(function (err) {
       knopf.disabled = false;
-      if (err.message === 'kein-php') mailRueckfall('Der Online-Versand ist in der Vorschau noch nicht aktiv.');
-      else mailRueckfall('Der Online-Versand hat gerade nicht geklappt.');
+      mailRueckfall(err.message === 'kein-php' ? 'Der Online-Versand ist in der Vorschau noch nicht aktiv.' : 'Der Online-Versand hat gerade nicht geklappt.');
     });
   });
 })();

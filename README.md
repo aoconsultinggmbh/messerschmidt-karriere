@@ -1,7 +1,7 @@
 # messerschmidt-karriere – Karriereseite des Zahnzentrums Messerschmidt (Mainz-Laubenheim)
 
 Statische Karriereseite, gebaut von der AO Consulting GmbH nach dem Standard der Karriereseiten 2.0
-(Aufbau wie whiteblick-karriere / ao-karriere), Gestaltung nach der Hauptseite https://zahnzentrum-messerschmidt.de.
+(Aufbau wie ao-karriere), Gestaltung wie die neue Hauptseite (messerschmidt-website, stil.css ist eine Kopie davon).
 
 - **Vorschau:** https://messerschmidt-karriere.vorschau.ao-consult.de (Zweig `main`, Google ausgesperrt)
 - **Live:** https://zahnzentrum-messerschmidt-karriere.de (Zweig `live`, nur auf das Wort „live“ eines Mitarbeiters) – Domain ist **noch nicht registriert**

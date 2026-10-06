@@ -37,20 +37,33 @@ Stand 06.10.2026, Awan Tofik mit Claude.
 - [ ] Matomo-Eintrag anlegen, `matomo_id` in kunde.json eintragen.
 - [ ] Instagram-Passwort stand im Onboarding-PDF im Klartext → in den Passwort-Manager, Kundin sollte es ändern.
 
+## Angleichung an die neue Hauptseite (06.10.2026)
+
+- Gestaltung 1:1 von der neuen Hauptseite (messerschmidt-website): `website/assets/css/stil.css` ist eine **Kopie** der Hauptseite,
+  Karriere-Eigenes steht in `karriere.css`. Änderungen am Grunddesign in der Hauptseite machen und stil.css herüberkopieren.
+- Schrift Manrope (lokal), Logo quer (`logo-quer.png`, `logo-quer-weiss.png`), Kopf durchsichtig über dem Teamfoto, Bewegungen wie auf der Hauptseite.
+- AO-Standard: Barrierefreiheits-Widget und Einwilligungsbanner. Das Banner erscheint hier nicht, weil die Karriereseite nichts
+  Einwilligungspflichtiges lädt (`assets/js/ao-konfiguration.js` hat nur „Notwendig“). Neue Seite `rechtliches/barrierefreiheit.html`.
+- WhatsApp bleibt auf der Karriereseite (nur auf der Hauptseite entfernt): am Rechner links unten, am Handy in der Schnellleiste.
+- Vorschau: Links auf zahnzentrum-messerschmidt.de zeigen in der Vorschau auf messerschmidt.vorschau.ao-consult.de (`hauptseite_vorschau` in kunde.json).
+- `.htaccess` korrigiert: enthielt noch Regeln und Weiterleitungen der Whiteblick-Karriereseite.
+- `bauen.py` hängt `?v=<Prüfsumme>` an CSS/JS, damit nach Änderungen keine alten Dateien aus dem Zwischenspeicher kommen.
+- Stellenseiten: `seo_titel` (unter 60 Zeichen) für Google, Kopf mit Bild, Ansprechpartnerin und Eckdaten rechts (am Handy oben).
+
 ## Bilder (Shooting Iwan Artemjew, Nummer = Dateiname ZahnzentrumMesserschmidt_<Nr>.jpg)
 
 Regel: nur Querformat-Originale, jedes Motiv (Serie) nur einmal auf der Startseite.
 
 | Datei | Nr. | Verwendung |
 |---|---|---|
-| hero-team(-mobil), og-bild | 29 | Titelbild (3:2, ungeschnitten), Vorschaubild |
+| hero-team(-mobil), og-bild | 29 | Titelbild, Vorschaubild |
 | haus | 14 | Über uns |
-| job-familie | 24 | Team-Abschnitt |
-| gruende-kollegen / -modern / -hell | 17 / 4 / 112 | Drei Gründe |
-| prozess-unterlagen / -telefonat / -gespraech / -schnuppertag | 39 / 36 / 44 / 19 | Bewerbungsprozess |
+| leitsatz | 17 | Hintergrund Leitsatz |
+| job-familie | 24 | Team |
+| gruende-kollegen / -modern / -hell | 47 / 2 / 112 | Drei Gründe |
 | ansprechpartner(-quer) | 62 | Dr. Sabine Messerschmidt (bestätigt) |
 | faq-empfang | 33 | FAQ |
-| praxis-<Nr> | 68, 12, 89, 1, 98 | Fotoband |
-| stelle-zfa / -zmp-zmf / -ausbildung | 21 / 80 / 102 | Stellenseiten |
+| stelle-zfa / -zmp-zmf / -ausbildung | 21 / 80 / 102 | Kopfbild der Stellenseiten |
 
+Jede Serie nur einmal auf der Startseite. Fotoband und Bilder beim Bewerbungsprozess entfernt (dort waren Serien doppelt: Hände 17/19, Empfang 33/36).
 Nicht verwendet: Hochkant (3, 5, 7, 15, 27, 49–55) und Wiederholungen derselben Serie. Zuschnitt: `bilder.py` (Mac-Arbeitsordner), jpg + webp.

@@ -21,6 +21,7 @@
   "_hinweis": "Standardtext AO Consulting. ZMP/ZMF eine gemeinsame Stelle (Vorgabe Awan). Beginn ab sofort bestätigt (Awan 06.10.2026); Voll-/Teilzeit angenommen.",
   "kennung": "zmp-zmf-mainz",
   "titel": "ZMP / ZMF: Zahnmedizinische Prophylaxe- oder Fachassistenz (m/w/d)",
+  "seo_titel": "ZMP / ZMF Job in Mainz (m/w/d) | Zahnzentrum Messerschmidt",
   "titel_kurz": "ZMP / ZMF",
   "reihenfolge": 2,
   "beschaeftigungsart": [
@@ -59,9 +60,9 @@
       "typ": "auswahl",
       "optionen": [
         "Keine Erfahrung",
-        "1-3 Jahre",
-        "3-5 Jahre",
-        "+5 Jahre"
+        "1 bis 3 Jahre",
+        "3 bis 5 Jahre",
+        "Mehr als 5 Jahre"
       ],
       "pflicht": false
     },

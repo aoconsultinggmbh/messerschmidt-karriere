@@ -6,6 +6,7 @@
   "branche": "Zahnarztpraxis",
   "kurzbeschreibung": "Zahnarztpraxis in einem eigens dafür gebauten, hellen und modernen Haus in Mainz-Laubenheim.",
   "hauptseite": "https://zahnzentrum-messerschmidt.de",
+  "hauptseite_vorschau": "https://messerschmidt.vorschau.ao-consult.de",
   "domain": "zahnzentrum-messerschmidt-karriere.de",
   "vorschau_domain": "messerschmidt-karriere.vorschau.ao-consult.de",
   "vorschau": true,
@@ -25,7 +26,7 @@
   ],
   "ansprechpartner": {
     "name": "Dr. Sabine Messerschmidt",
-    "rolle": "Zahnärztin | Praxisinhaberin",
+    "rolle": "Zahnärztin und Praxisinhaberin",
     "telefon": "06131 86926",
     "email": "info@zahnzentrum-messerschmidt.de",
     "whatsapp": "+4915154321140",
@@ -48,13 +49,13 @@
     "farbe_primaer": "#006eb7",
     "farbe_akzent": "#84d0f5",
     "farbe_hintergrund": "#ffffff",
-    "farbe_text": "#636363",
-    "schrift_ueberschrift": "Roboto Condensed",
-    "schrift_text": "Open Sans",
-    "logo": "assets/img/logo.png",
-    "logo_breite": 246,
-    "logo_hoehe": 135,
-    "quelle": "CI von der Hauptseite zahnzentrum-messerschmidt.de (ausgelesen 06.10.2026): Überschriften Roboto Condensed Light 300 in Versalien #636363, Fließtext Open Sans #636363, Dunkel #27363f, Menü-Akzent Hellblau #83d0f0 als Unterstrich, Flächen #eff1f3 / #dce1e4. Blau #006eb7 und Hellblau #84d0f5 aus dem Logo. Logo: PNG 246×135 von der Hauptseite (SVG kommt laut Onboarding von der Kundin). Schriften liegen lokal (SIL Open Font License, aus @fontsource)."
+    "farbe_text": "#22313f",
+    "schrift_ueberschrift": "Manrope",
+    "schrift_text": "Manrope",
+    "logo": "assets/img/logo-quer.png",
+    "logo_breite": 650,
+    "logo_hoehe": 116,
+    "quelle": "Seit 06.10.2026 Gestaltung der neuen Hauptseite (messerschmidt-website): Manrope, Blau #006eb7, Hellblau #84d0f5, Nachtblau #0b1f33, Text #22313f. stil.css ist eine Kopie der Hauptseite, Karriere-Eigenes in karriere.css. Logo quer aus der Hauptseite (SVG kommt laut Onboarding von der Kundin)."
   },
   "social": {
     "instagram": "https://www.instagram.com/zahnzentrum_messerschmidt/",

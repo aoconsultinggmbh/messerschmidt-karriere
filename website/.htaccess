@@ -3,10 +3,10 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} \.kasserver\.com$ [NC]
 RewriteRule ^ - [L]
 
-# http → https, mit www → ohne www (die alte Karriereseite lief unter https://whiteblick-karriere.de/ ohne www)
+# http → https, mit www → ohne www
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.whiteblick-karriere\.de$ [NC]
-RewriteRule ^ https://whiteblick-karriere.de%{REQUEST_URI} [L,R=301,NE]
+RewriteCond %{HTTP_HOST} ^www\.zahnzentrum-messerschmidt-karriere\.de$ [NC]
+RewriteRule ^ https://zahnzentrum-messerschmidt-karriere.de%{REQUEST_URI} [L,R=301,NE]
 
 # Konfiguration nie ausliefern
 <Files "bewerbung-konfiguration.php">
@@ -32,17 +32,7 @@ RewriteRule ^ https://whiteblick-karriere.de%{REQUEST_URI} [L,R=301,NE]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Weiterleitungen alter Adressen (WordPress → neu), Liste: doku/alte-adressen.md
-Redirect 301 /job/zfa-zahnmedizinische-fachangestellte-zahnarzthelferin-als-behandlungsassistenz-m-w-d/ /stellen/zfa-behandlungsassistenz-stuttgart.html
-Redirect 301 /job/zmp-zmf-dh-zahnmedizinische-prophylaxeassistentin-dentalhygienikerin-m-w-d/ /stellen/zmp-zmf-dh-prophylaxe-stuttgart.html
-Redirect 301 /job/zfa-zmp-zmf-zahnmedizinische-fachangestellte-fuer-die-prophylaxe-m-w-d/ /stellen/zfa-zmp-zmf-prophylaxe-stuttgart.html
-Redirect 301 /job/ausbildung-als-zfa-zahnmedizinische-fachangestellte-m-w-d-2026/ /stellen/ausbildung-zfa-stuttgart.html
-Redirect 301 /job/zahnmedizinische-verwaltungsangestellte-zmv-zfa-fuer-die-abrechnung-m-w-d/ /stellen/zmv-abrechnung-stuttgart.html
-RedirectMatch 301 ^/job/?$ /#stellen
-RedirectMatch 301 ^/jobs/?$ /#stellen
-Redirect 301 /dankesseite/ /danke.html
-Redirect 301 /impressum/ /rechtliches/impressum.html
-Redirect 301 /datenschutzerklaerung/ /rechtliches/datenschutz.html
-Redirect 301 /gleichstellungshinweis/ /rechtliches/gleichstellungshinweis.html
+# Keine Weiterleitungen nötig: Die Karriereseite ist neu, es gibt keine alten Adressen unter dieser Domain.
+# Die Hauptseite verlinkt im Menü und im Karriere-Abschnitt hierher.
 
 ErrorDocument 404 /404.html
