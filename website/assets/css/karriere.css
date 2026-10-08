@@ -161,6 +161,8 @@ html.bf-links .whatsapp-schwebend{left:auto;right:22px}
   .stelle-kopf.mit-bild{display:flex;align-items:center}
   .stelle-kopf .seitenkopf-bild{position:absolute;right:max(40px,calc((100% - var(--breite-hero))/2 + 40px));top:50%;width:min(40%,640px);margin:calc(min(40vw,640px) / -3) 0 0}
   .stelle-kopf.mit-bild .seitenkopf-text{padding-top:clamp(60px,6vw,96px);padding-bottom:clamp(60px,6vw,96px)}
-  .stelle-kopf.mit-bild .seitenkopf-text>*{max-width:min(54%,760px)}
+  .stelle-kopf.mit-bild .seitenkopf-text>*{max-width:min(56%,880px)}
   .stelle-kopf.mit-bild .seitenkopf-text{min-height:calc(min(40vw,640px) / 1.5 + 2 * clamp(60px,6vw,96px))}
 }
+/* Überschrift der Stellenanzeigen etwas kleiner, damit sie höchstens dreizeilig läuft (Wunsch Awan, 08.10.2026) */
+.stelle-kopf h1{font-size:clamp(27px,3.2vw,50px);max-width:none}
