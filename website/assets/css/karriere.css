@@ -6,9 +6,11 @@
 
 /* Hero mit Teamfoto */
 .hero-karriere .hero-foto{position:absolute;inset:0}
-.hero-karriere .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:60% 0%}
+.hero-karriere .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:60% 35%}
 @media (max-width:760px){.hero-karriere .hero-foto img{object-position:55% 35%}}
 .hero-karriere h1{font-size:clamp(40px,6vw,82px);max-width:20ch}
+/* Unterzeile so breit wie die Überschrift (ab Tablet) */
+@media (min-width:761px){.hero-karriere .hero-inhalt{display:grid;grid-template-columns:max-content;align-content:end}.hero-karriere .hero-unterzeile{max-width:none;contain:inline-size}}
 
 /* Marken (Ampel: offen grün, initiativ senfgelb) */
 .marken{display:flex;flex-wrap:wrap;gap:8px;margin:0}
@@ -49,7 +51,10 @@
 .benefit:hover img{transform:translateY(-4px) rotate(-6deg) scale(1.08)}
 .benefit h3{font-size:19px;margin-bottom:.35em}
 .benefit p{color:var(--grau);font-size:15.5px;margin:0}
-.benefits-fuss{margin-top:28px;color:var(--grau);max-width:70ch}
+.benefits-fuss{margin-top:28px;color:var(--grau)}
+/* Einleitungstexte über die ganze Breite, Überschrift bleibt schmal */
+.abschnitt-kopf{max-width:none}
+.abschnitt-kopf h2{max-width:760px}
 
 /* Drei Gründe */
 .gruende-raster{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
