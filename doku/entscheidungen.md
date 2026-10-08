@@ -56,7 +56,7 @@ Regel: nur Querformat-Originale, jedes Motiv (Serie) nur einmal auf der Startsei
 
 | Datei | Nr. | Verwendung |
 |---|---|---|
-| hero-flur(-mobil) | 52 | Titelbild, steht still (seit 08.10.2026, Wunsch Awan; vorher hero-team Nr. 29 mit langsamem Zoom) |
+| hero-flur-2 / hero-flur-mobil | 52 | Titelbild, steht still (seit 08.10.2026, Wunsch Awan; vorher hero-team Nr. 29 mit langsamem Zoom) |
 | og-bild | 29 | Vorschaubild für Links |
 | haus | 14 | Über uns |
 | leitsatz | 17 | Hintergrund Leitsatz |
