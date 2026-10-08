@@ -64,7 +64,7 @@ Regel: nur Querformat-Originale, jedes Motiv (Serie) nur einmal auf der Startsei
 | gruende-kollegen / -modern / -hell | 47 / 2 / 112 | Drei Gründe |
 | ansprechpartner(-quer) | 62 | Dr. Sabine Messerschmidt (bestätigt) |
 | faq-empfang | 33 | FAQ |
-| stelle-zfa / -zmp-zmf / -ausbildung | 21 / 80 / 102 | Kopfbild der Stellenseiten |
+| stelle-zfa-behandlungszimmer / stelle-zmp-zmf-empfang / stelle-ausbildung-flur | 23 / 45 / 54 | Kopfbild der Stellenseiten, seit 08.10.2026 als ganzes Foto im Rahmen neben dem Text (keine angeschnittenen Köpfe, Wunsch Awan; vorher 21 / 80 / 102 als Hintergrund). Frau Messerschmidt bewusst nicht im Kopfbild, sie steht als Ansprechpartnerin auf derselben Seite |
 
 Jede Serie nur einmal auf der Startseite. Fotoband und Bilder beim Bewerbungsprozess entfernt (dort waren Serien doppelt: Hände 17/19, Empfang 33/36).
 Nicht verwendet: Hochkant (3, 5, 7, 15, 27, 49–55) und Wiederholungen derselben Serie. Zuschnitt: `bilder.py` (Mac-Arbeitsordner), jpg + webp.

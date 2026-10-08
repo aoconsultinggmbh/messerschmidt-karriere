@@ -149,3 +149,18 @@ html.bf-links .whatsapp-schwebend{left:auto;right:22px}
 /* Kopf-Knopf: zwischen Handy und Rechner mit Text, am Handy übernimmt die Schnellleiste */
 @media (max-width:1100px){.kopf-knopf span{display:inline}.kopf-knopf{padding:10px 16px}}
 @media (max-width:760px){.kopf-knopf{display:none}.navi-schalter{margin-left:auto}}
+
+/* Seitenkopf der Stellenanzeigen: Foto als ganzes Bild im Rahmen neben dem Text, nichts wird angeschnitten
+   (seit 08.10.2026, Wunsch Awan). Hintergrund ist der dunkle Verlauf des Seitenkopfs. */
+.stelle-kopf.mit-bild::before{display:none}
+.stelle-kopf.mit-bild{min-height:0;display:block}
+.stelle-kopf .seitenkopf-bild{position:relative;inset:auto;transform:none !important;width:calc(100% - 40px);max-width:640px;aspect-ratio:3/2;margin:28px auto 0;border-radius:var(--radius);overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.stelle-kopf .seitenkopf-bild img{width:100%;height:100%;object-fit:cover}
+.stelle-kopf.mit-bild .seitenkopf-text{padding-top:32px}
+@media (min-width:1000px){
+  .stelle-kopf.mit-bild{display:flex;align-items:center}
+  .stelle-kopf .seitenkopf-bild{position:absolute;right:max(40px,calc((100% - var(--breite-hero))/2 + 40px));top:50%;width:min(40%,640px);margin:calc(min(40vw,640px) / -3) 0 0}
+  .stelle-kopf.mit-bild .seitenkopf-text{padding-top:clamp(60px,6vw,96px);padding-bottom:clamp(60px,6vw,96px)}
+  .stelle-kopf.mit-bild .seitenkopf-text>*{max-width:min(54%,760px)}
+  .stelle-kopf.mit-bild .seitenkopf-text{min-height:calc(min(40vw,640px) / 1.5 + 2 * clamp(60px,6vw,96px))}
+}

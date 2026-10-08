@@ -394,10 +394,10 @@ def baue(projekt: Path) -> int:
             "aufgaben_html": liste_html(s["aufgaben"]), "profil_html": liste_html(s["profil"]),
             "wir_bieten_html": liste_html(s["wir_bieten"]),
             "seitenkopf_klasse": " mit-bild" if s.get("bild") else "",
-            "kopf_bild": (('<div class="seitenkopf-bild" data-parallax><picture>'
+            "kopf_bild": (('<div class="seitenkopf-bild"><picture>'
                            + (f'<source srcset="../{esc(Path(s["bild"]).with_suffix(".webp").as_posix())}" type="image/webp">'
                               if (web / Path(s["bild"]).with_suffix(".webp")).exists() else "")
-                           + f'<img src="../{esc(s["bild"])}" alt="{esc(s.get("bild_alt", ""))}" width="1920" height="1080" fetchpriority="high"></picture></div>')
+                           + f'<img src="../{esc(s["bild"])}" alt="{esc(s.get("bild_alt", ""))}" width="1500" height="1000" fetchpriority="high"></picture></div>')
                           if s.get("bild") else ""),
             "whatsapp_knopf_hell": (f'<a class="knopf knopf-rand-hell" href="https://wa.me/{esc(ap["whatsapp"].lstrip("+").replace(" ", ""))}?text={wa_text(s)}" rel="noopener" target="_blank">Per WhatsApp schreiben</a>'
                                     if ap.get("whatsapp") else ""),
